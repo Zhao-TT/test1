@@ -1,12 +1,4 @@
-/**¹¦ÄÜ£ºÌ¹¿ËÓÎÏ·
- * 1.»­³öÌ¹¿Ë
- * 2.Ì¹¿Ë¿ÉÒÔÉÏÏÂ×óÓÒÒÆ¶¯
- * 3.¿ÉÒÔ·¢Éä×Óµ¯
- * 4.×Óµ¯¿ÉÒÔÁ¬·¢£¨Ö»ÄÜ·¢5¿Å£©
- * 5.ÎÒµÄÌ¹¿Ë»÷ÖĞµĞÈËÌ¹¿ËÊ±ÏûÊ§
- * 6.µĞÈËÌ¹¿ËÏûÊ§ÓĞ±¬Õ¨Ğ§¹û
- * 
- */
+
 package tank_zhaotengteng;
 import java.awt.*;
 import java.io.*;
@@ -44,12 +36,12 @@ public class demo1 extends JFrame implements ActionListener{
 		//this.addKeyListener(mp);
 		
 		jmb=new JMenuBar();
-		jm1=new JMenu("ÓÎÏ·(G)");
+		jm1=new JMenu("æ¸¸æˆ(G)");
 		jm1.setMnemonic('G');
-		jmi1=new JMenuItem("¿ªÊ¼ĞÂÓÎÏ·(N)");
-		jmi2=new JMenuItem("ÍË³öÓÎÏ·(E)");
-		jmi3=new JMenuItem("´æÅÌÍË³öÓÎÏ·(C)");
-		jmi4=new JMenuItem("¼ÌĞøÉÏ¾ÖÓÎÏ·(S)");
+		jmi1=new JMenuItem("å¼€å§‹æ–°æ¸¸æˆ(N)");
+		jmi2=new JMenuItem("é€€å‡ºæ¸¸æˆ(E)");
+		jmi3=new JMenuItem("å­˜ç›˜é€€å‡ºæ¸¸æˆ(C)");
+		jmi4=new JMenuItem("ç»§ç»­ä¸Šå±€æ¸¸æˆ(S)");
 		jmi1.setMnemonic('N');
 		jmi2.setMnemonic('E');
 		jmi3.setMnemonic('C');
@@ -137,7 +129,7 @@ class MyStartPanel extends JPanel implements Runnable
 		g.fillRect(0, 0, 400, 300);
 		if(times%2==0)
 		{g.setColor(Color.yellow );
-		Font myFont =new Font("»ªÎÄĞÂÎº",Font.BOLD,30);
+		Font myFont =new Font("åæ–‡æ–°é­",Font.BOLD,30);
 		g.setFont(myFont);
 		g.drawString("stage: 1", 150, 150);}
 	}
@@ -247,9 +239,9 @@ class MyPanel4 extends JPanel implements KeyListener,Runnable
 		g.drawString(Recorder.getMyLife()+"", 160, 350);
 		
 		g.setColor(Color.black);
-		Font f=new Font("ËÎÌå",Font.BOLD,20);
+		Font f=new Font("å®‹ä½“",Font.BOLD,20);
 		g.setFont(f);
-		g.drawString("ÄúµÄ×Ü³É¼¨", 420, 20);
+		g.drawString("æ‚¨çš„æ€»æˆç»©", 420, 20);
 		
 		this.drawTank(420, 60, g, 0, 0);
 		g.setColor(Color.black);
@@ -303,7 +295,7 @@ class MyPanel4 extends JPanel implements KeyListener,Runnable
 		}
 	    
 		
-		//Ö»ÄÜ»­³öÒ»¿Å×Óµ¯
+		//åªèƒ½ç”»å‡ºä¸€é¢—å­å¼¹
 		/*if(hero.s!=null&&hero.s.isLive==true)
 		{
 			g.draw3DRect(hero.s.x, hero.s.y, 1, 1, false);
@@ -388,10 +380,10 @@ class MyPanel4 extends JPanel implements KeyListener,Runnable
 		case 2:
 			if(s.x>=iet.x&&s.x<=iet.x+20&&s.y>=iet.y&&s.y<=iet.y+30)
 			{
-				//»÷ÖĞ
-				//×Óµ¯ËÀÍö
+				//å‡»ä¸­
+				//å­å¼¹æ­»äº¡
 				s.isLive=false;
-				//µĞÈËÌ¹¿ËËÀÍö
+				//æ•Œäººå¦å…‹æ­»äº¡
 				iet.isLive=false;
 				
 				if(iet==hero)
@@ -414,10 +406,10 @@ class MyPanel4 extends JPanel implements KeyListener,Runnable
 		case 3:
 			if(s.x>=iet.x&&s.x<=iet.x+30&&s.y>=iet.y&&s.y<=iet.y+20)
 			{
-				//»÷ÖĞ
-				//×Óµ¯ËÀÍö
+				//å‡»ä¸­
+				//å­å¼¹æ­»äº¡
 				s.isLive=false;
-				//µĞÈËÌ¹¿ËËÀÍö
+				//æ•Œäººå¦å…‹æ­»äº¡
 				iet.isLive=false;
 				if(iet==hero)
 				{
@@ -1097,7 +1089,7 @@ class Hero extends Tank
 			break;
 					
 		}
-		Thread t=new Thread(s);//Æô¶¯×Óµ¯Ïß³Ì
+		Thread t=new Thread(s);//å¯åŠ¨å­å¼¹çº¿ç¨‹
 		t.start();
 	}
 	
@@ -1186,9 +1178,9 @@ class Shot implements Runnable
 				break;
 			case 3:
 				x-=speed;
-				break;//²ĞÁô×Óµ¯ºÎÊ±ËÀÍöÎÊÌâ
+				break;//æ®‹ç•™å­å¼¹ä½•æ—¶æ­»äº¡é—®é¢˜
 			}
-			//System.out.println("×Óµ¯×ø±êx="+x+"y="+y);
+			//System.out.println("å­å¼¹åæ ‡x="+x+"y="+y);
 			if(x<0||x>400||y<0||y>300)
 			{
 				this.isLive=false;
